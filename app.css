@@ -112,6 +112,8 @@ svg {
   font-size: 1.2em;
   border-bottom: solid 2px #EEEEEE;
   letter-spacing: 2px;
+  justify-content: space-between;
+  align-items: center;
 }
 
   .player:last-of-type {
@@ -127,7 +129,7 @@ svg {
     color: #2F2366;
   }
 
-  .player-name {
+  .playerName {
     flex-grow: 1;
     line-height: 3.5em;
     padding-left: 10px;
