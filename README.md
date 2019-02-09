@@ -3,7 +3,6 @@
 A simple scoreboard app to keep track of players and their scores.
 
 ## Technologies Used
-
 React
 JavaScript
 HTML
