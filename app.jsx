@@ -9,7 +9,7 @@ const Header = props => {
 }
 
 const Player = props => (
-    <div className="player" key={props.id.toString()}>
+    <div className="player">
         <span className="playerName">{props.name}</span>
         <Counter />
     </div>
@@ -86,7 +86,7 @@ class App extends React.Component {
                         <Player
                             name={player.name}
                             id={player.id}
-                            // key={player.id.toString()}
+                            key={player.id.toString()}
                             removePlayer={this.removePlayer}
                         />
                     )
