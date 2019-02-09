@@ -10,7 +10,10 @@ const Header = props => {
 
 const Player = props => (
     <div className="player">
-        <span className="playerName">{props.name}</span>
+        <span className="player-name">
+            <button className="remove-player" onClick={() => props.removePlayer(props.id)}>✖</button>
+            {props.name}
+        </span>
         <Counter />
     </div>
 );

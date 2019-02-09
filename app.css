@@ -129,7 +129,7 @@ svg {
     color: #2F2366;
   }
 
-  .playerName {
+  .player-name {
     flex-grow: 1;
     line-height: 3.5em;
     padding-left: 10px;
