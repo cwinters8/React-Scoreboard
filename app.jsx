@@ -9,7 +9,7 @@ const Header = props => {
 }
 
 const Player = props => (
-    <div className="player">
+    <div className="player" key={props.id.toString()}>
         <span className="playerName">{props.name}</span>
         <Counter />
     </div>
@@ -64,6 +64,13 @@ class App extends React.Component {
             }
         ]
     }
+
+    removePlayer = (id) => {
+        this.setState(prevState => ({
+            players: prevState.players.filter(player => player.id !== id)
+        }));
+    }
+
     render() {
         const players = this.state.players;
         return (
@@ -78,7 +85,9 @@ class App extends React.Component {
                     return (
                         <Player
                             name={player.name}
-                            key={player.id.toString()}
+                            id={player.id}
+                            // key={player.id.toString()}
+                            removePlayer={this.removePlayer}
                         />
                     )
                 })}
