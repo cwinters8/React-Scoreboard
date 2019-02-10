@@ -44,29 +44,17 @@ class App extends Component {
   handleScoreChange = (index, delta) => {
     this.setState( prevState => ({
       score: prevState.players[index].score += delta
-    }), this.checkScores);
+    }));
   }
 
   checkScores = () => {
     // get highest score
-    const highest = this.state.players.reduce((topScore, player) => {
+    return this.state.players.reduce((topScore, player) => {
       if (player.score > topScore) {
         topScore = player.score;
       }
       return topScore;
     }, 1)
-    // set isHighest for players with the highest scores
-    this.state.players.forEach((player, index) => {
-      if (player.score === highest) {
-        this.setState(prevState => ({
-          isHighest: prevState.players[index].isHighest = true
-        }))
-      } else {
-        this.setState(prevState => ({
-          isHighest: prevState.players[index].isHighest = false
-        }))
-      }
-    })
   }
 
   handleAddPlayer = name => {
@@ -93,6 +81,7 @@ class App extends Component {
   }
 
   render() {
+    const highScore = this.checkScores();
     return (
       <div className="scoreboard">
         <Header 
@@ -105,12 +94,11 @@ class App extends Component {
           <Player 
             name={player.name}
             score={player.score}
-            isHighest={player.isHighest}
+            isHighest={highScore === player.score}
             id={player.id}
             key={player.id.toString()}
             index={index}
             changeScore={this.handleScoreChange}
-            checkScores={this.checkScores}
             removePlayer={this.handleRemovePlayer}           
           />
         )}
