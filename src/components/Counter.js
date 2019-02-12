@@ -12,7 +12,6 @@ const Counter = ({index, score}) => {
                     <button className="counter-action increment" onClick={() => context.actions.changeScore(index, 1)}> + </button>
                 </div>
             )}
-
         </Consumer>
     );
 }
