@@ -87,7 +87,8 @@ export class Provider extends Component {
                 actions: {
                     changeScore: this.handleScoreChange,
                     removePlayer: this.handleRemovePlayer,
-                    addPlayer: this.handleAddPlayer
+                    addPlayer: this.handleAddPlayer,
+                    checkScores: this.checkScores
                 }
             }}>
                 {this.props.children}
