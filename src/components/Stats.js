@@ -10,12 +10,12 @@ const Stats = () => {
                         <tbody>
                             <tr>
                                 <td>Players:</td>
-                                <td>{context.length}</td>
+                                <td>{context.players.length}</td>
                             </tr>
                             <tr>
                                 <td>Total Points:</td>
                                 <td>{
-                                    context.reduce((total, player) => {
+                                    context.players.reduce((total, player) => {
                                         return total += player.score;
                                     }, 0)
                                 }</td>

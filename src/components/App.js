@@ -84,7 +84,12 @@ class App extends Component {
   render() {
     const highScore = this.checkScores();
     return (
-      <Provider value={this.state.players}>
+      <Provider value={{
+        players: this.state.players,
+        actions: {
+          changeScore: this.handleScoreChange
+        }
+      }}>
         <div className="scoreboard">
           <Header 
             title="Scoreboard"
@@ -99,7 +104,6 @@ class App extends Component {
               id={player.id}
               key={player.id.toString()}
               index={index}
-              changeScore={this.handleScoreChange}
               removePlayer={this.handleRemovePlayer}           
             />
           )}
