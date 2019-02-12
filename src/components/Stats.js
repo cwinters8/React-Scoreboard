@@ -1,32 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Consumer } from './Context';
 
-const Stats = ({players}) => {
+const Stats = () => {
     return (
-        <table className="stats">
-            <tbody>
-                <tr>
-                    <td>Players:</td>
-                    <td>{players.length}</td>
-                </tr>
-                <tr>
-                    <td>Total Points:</td>
-                    <td>{
-                        players.reduce((total, player) => {
-                            return total += player.score;
-                        }, 0)
-                    }</td>
-                </tr>
-            </tbody>
-        </table>
-    );
-}
+        <Consumer>
+            {context => {
+                return (
+                    <table className="stats">
+                        <tbody>
+                            <tr>
+                                <td>Players:</td>
+                                <td>{context.length}</td>
+                            </tr>
+                            <tr>
+                                <td>Total Points:</td>
+                                <td>{
+                                    context.reduce((total, player) => {
+                                        return total += player.score;
+                                    }, 0)
+                                }</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                );
+            }}
+        </Consumer>
 
-Stats.propTypes = {
-    players: PropTypes.arrayOf(PropTypes.shape({
-        length: PropTypes.number,
-        score: PropTypes.number
-    }))
+    );
 }
 
 export default Stats;
